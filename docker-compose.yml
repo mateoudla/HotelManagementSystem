@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  soap_service:
+    build: ./SOAP_Service
+    ports:
+      - "9090:9090"
+
+  rest_api:
+    build: ./REST_API
+    ports:
+      - "3000:3000"
+    depends_on:
+      - soap_service
+      - mongodb
+
+  inventory_service:
+    build: ./Inventory_Service
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
