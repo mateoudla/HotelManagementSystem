@@ -23,13 +23,14 @@ A continuación, se muestran ejemplos detallados de las solicitudes y respuestas
 
 ### **Respuesta Esperada**
 ```xml
-<availability>
-   <room>
-      <id>101</id>
-      <type>Deluxe</type>
-      <status>Available</status>
-   </room>
-</availability>
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:checkAvailabilityResponse xmlns:ns2="http://soap.hotel.com/">
+            <return>&lt;availability&gt;&lt;room&gt;&lt;id&gt;101&lt;/id&gt;&lt;type&gt;Deluxe&lt;/type&gt;&lt;status&gt;Available&lt;/status&gt;&lt;/room&gt;</return>
+        </ns2:checkAvailabilityResponse>
+    </S:Body>
+</S:Envelope>
 ```
 
 ---
